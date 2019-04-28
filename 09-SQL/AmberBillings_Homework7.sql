@@ -91,7 +91,7 @@ FROM film INNER JOIN film_actor
 ON film.film_id = film_actor.film_id
 GROUP BY film.film_id;
 
--- 6d ... answer = 6
+-- 6d
 SELECT film_id, COUNT(film_id)
 FROM inventory
 WHERE film_id IN (
@@ -183,3 +183,50 @@ INNER JOIN payment
 INNER JOIN inventory
 	ON rental.inventory_id = inventory.inventory_id
 GROUP BY inventory.store_id;
+
+-- 7g
+SELECT store.store_id, city.city, country.country
+FROM store
+INNER JOIN address
+	ON store.address_id = address.address_id
+INNER JOIN city
+	ON address.city_id = city.city_id
+INNER JOIN country
+	ON city.country_id = country.country_id;
+    
+-- 7h
+SELECT category.name, SUM(payment.amount)
+FROM category
+INNER JOIN film_category
+	ON category.category_id = film_category.category_id
+INNER JOIN inventory 
+	ON film_category.film_id = inventory.film_id
+INNER JOIN rental
+	ON inventory.inventory_id = rental.inventory_id
+INNER JOIN payment
+	ON rental.rental_id = payment.rental_id
+GROUP BY category.name
+ORDER BY SUM(payment.amount) DESC
+LIMIT 5;
+
+-- 8a
+CREATE VIEW top_five_genres AS
+SELECT category.name, SUM(payment.amount)
+FROM category
+INNER JOIN film_category
+	ON category.category_id = film_category.category_id
+INNER JOIN inventory 
+	ON film_category.film_id = inventory.film_id
+INNER JOIN rental
+	ON inventory.inventory_id = rental.inventory_id
+INNER JOIN payment
+	ON rental.rental_id = payment.rental_id
+GROUP BY category.name
+ORDER BY SUM(payment.amount) DESC
+LIMIT 5;
+
+-- 8b
+SELECT * FROM top_five_genres;
+
+-- 8c
+DROP VIEW top_five_genres;
