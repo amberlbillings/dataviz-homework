@@ -1,0 +1,71 @@
+/* remove default margin and padding from body */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* set map, body, and html to 100% of the screen size */
+#map,
+body,
+html {
+  height: 100%;
+}
+
+.legend {
+  padding: 15px;
+  font: 12px Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #555;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.legend p {
+  padding-top: 5px;
+  text-align: center;
+  margin: 0px;
+}
+
+.legend .zero {
+  width: 45px;
+  height: 25px;
+  background: #B7F34D;
+  margin: auto;
+}
+
+.legend .one {
+  width: 45px;
+  height: 25px;
+  background: #E1F34C;
+  margin: auto;
+}
+
+.legend .two {
+  width: 45px;
+  height: 25px;
+  background: #F4DA4C;
+  margin: auto;
+}
+
+.legend .three {
+  width: 45px;
+  height: 25px;
+  background: #F3BA4C;
+  margin: auto;
+}
+
+.legend .four {
+  width: 45px;
+  height: 25px;
+  background: #F0A66B;
+  margin: auto;
+}
+
+.legend .five {
+  width: 45px;
+  height: 25px;
+  background: #F06B6B;
+  margin: auto;
+}
