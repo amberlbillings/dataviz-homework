@@ -109,7 +109,7 @@ function createMap(earthquakes, faultLines) {
   var legend = L.control({ position: "bottomright" });
   legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend");
-    var limits = ["0-1", "1-2", "2-3", "3-4", "4-5", "5-6"];
+    var limits = ["0-1", "1-2", "2-3", "3-4", "4-5", "5+"];
 
     var legendInfo =
       "<div class=\"labels\">" +
